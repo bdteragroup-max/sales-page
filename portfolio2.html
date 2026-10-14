@@ -36,7 +36,7 @@
 
         /* Hero Section */
         .hero {
-            background-image: url('Photo-t/48f342f0-45e6-431e-bed8-f5900dc667f3.jpg');
+            background-image: url('background/48f342f0-45e6-431e-bed8-f5900dc667f3.jpg');
             background-size: cover;
             background-position: top center;
             padding: 100px 0 120px;
@@ -200,28 +200,28 @@
 
         /* Fixed Backgrounds for Middle Sections */
         .portfolio-section {
-            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('Photo-t/Gemini_Generated_Image_2av86n2av86n2av8.jpg');
+            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('background/Gemini_Generated_Image_2av86n2av86n2av8.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
         .stats-section {
-            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('Photo-t/Gemini_Generated_Image_1o7t5q1o7t5q1o7t.jpg');
+            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('background/Gemini_Generated_Image_1o7t5q1o7t5q1o7t.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
         .process-section {
-            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('Photo-t/Gemini_Generated_Image_yzwr28yzwr28yzwr.jpg');
+            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('background/Gemini_Generated_Image_yzwr28yzwr28yzwr.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
         .results-section {
-            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('Photo-t/Gemini_Generated_Image_djhzirdjhzirdjhz.jpg');
+            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('background/Gemini_Generated_Image_djhzirdjhzirdjhz.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -316,22 +316,247 @@
             margin-bottom: 40px;
         }
 
-        .portfolio-card {
+        .portfolio-card,
+        .agri-portfolio-card {
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             background: #fff;
-            transition: transform 0.3s;
+            transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.35s ease;
+            cursor: pointer;
+            position: relative;
         }
 
-        .portfolio-card:hover {
-            transform: translateY(-10px);
+        .portfolio-card:hover,
+        .agri-portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
         }
 
-        .portfolio-card img {
+        .portfolio-card img,
+        .agri-portfolio-card img {
             width: 100%;
             height: 250px;
             object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: block;
+        }
+
+        .portfolio-card:hover img,
+        .agri-portfolio-card:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Hover Zoom Indicator */
+        .portfolio-card::after,
+        .agri-portfolio-card::after {
+            content: '\f00e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.92);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            opacity: 0;
+            transform: scale(0.7);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .portfolio-card:hover::after,
+        .agri-portfolio-card:hover::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Clean Lightbox Modal */
+        .lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 15, 26, 0.95);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            z-index: 999999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-close-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #fff;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            z-index: 30;
+        }
+
+        .lightbox-close-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .lightbox-stage {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            touch-action: pan-y;
+            cursor: pointer;
+        }
+
+        .lightbox-slide {
+            width: min(90vw, 75vh);
+            height: min(90vw, 75vh);
+            max-width: 720px;
+            max-height: 720px;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1), opacity 0.25s ease;
+            cursor: pointer;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
+            background: #000;
+            position: relative;
+        }
+
+        .lightbox-slide:active {
+            cursor: pointer;
+        }
+
+        .lightbox-img {
+            width: 100%;
+            height: calc(100% + 18px);
+            margin-top: -14px;
+            object-fit: cover;
+            border-radius: 0;
+            pointer-events: none;
+            display: block;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+                /* Dotted Indicator */
+        .lightbox-dots-container {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            z-index: 25;
+            padding: 8px 16px;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            max-width: min(88vw, 380px);
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .lightbox-dots-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .lightbox-dot {
+            width: 8px;
+            height: 8px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .lightbox-dot:hover {
+            background: rgba(255, 255, 255, 0.85);
+            transform: scale(1.25);
+        }
+
+        .lightbox-dot.active {
+            width: 24px;
+            border-radius: 12px;
+            background: var(--primary, #e3000f);
+            box-shadow: 0 0 12px rgba(227, 0, 15, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-close-btn {
+                top: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            .lightbox-nav-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 1.1rem;
+            }
+            .lightbox-prev {
+                left: 10px;
+            }
+            .lightbox-next {
+                right: 10px;
+            }
+            .lightbox-dots-container {
+                bottom: 20px;
+                gap: 8px;
+                padding: 6px 14px;
+            }
+            .lightbox-dot {
+                width: 8px;
+                height: 8px;
+            }
+            .lightbox-dot.active {
+                width: 22px;
+            }
+            .lightbox-img {
+                max-height: 75vh;
+            }
         }
 
         .portfolio-placeholder {
@@ -611,7 +836,7 @@
 
         /* CTA Section */
         .cta-section {
-            background-image: url('Photo-t/48f342f0-45e6-431e-bed8-f5900dc667f3.jpg');
+            background-image: url('background/48f342f0-45e6-431e-bed8-f5900dc667f3.jpg');
             background-size: cover;
             background-position: bottom center;
             padding: 80px 0 0;
@@ -703,7 +928,7 @@
 
         /* Form Section */
         .form-section {
-            background: linear-gradient(rgba(245, 247, 250, 0.5), rgba(245, 247, 250, 0.6)), url('Photo-t/Gemini_Generated_Image_5gkalc5gkalc5gka.jpg');
+            background: linear-gradient(rgba(245, 247, 250, 0.5), rgba(245, 247, 250, 0.6)), url('background/Gemini_Generated_Image_5gkalc5gkalc5gka.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -711,11 +936,11 @@
         }
 
         .form-agri {
-            background-image: linear-gradient(rgba(245, 247, 250, 0.5), rgba(245, 247, 250, 0.6)), url('Photo-t/solar_F1.jpg');
+            background-image: linear-gradient(rgba(245, 247, 250, 0.5), rgba(245, 247, 250, 0.6)), url('background/solar_F1.jpg');
         }
 
         .form-home {
-            background-image: linear-gradient(rgba(245, 247, 250, 0.5), rgba(245, 247, 250, 0.6)), url('Photo-t/solar_H2.jpg');
+            background-image: linear-gradient(rgba(245, 247, 250, 0.5), rgba(245, 247, 250, 0.6)), url('background/solar_H2.jpg');
         }
 
         .form-container {
@@ -968,7 +1193,7 @@
 
         /* Agri Hero Section */
         .hero-agri {
-            background-image: url('Photo-t/solar_F1.jpg');
+            background-image: url('background/solar_F1.jpg');
             background-size: cover;
             background-position: center;
             padding: 150px 0 170px;
@@ -991,7 +1216,7 @@
 
         /* Agri Portfolio Section */
         .portfolio-agri {
-            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('Photo-t/solar_F3.jpg');
+            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('background/solar_F3.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -1097,7 +1322,7 @@
 
         /* Agri Results Section */
         .results-agri {
-            background: url('Photo-t/solar_F4.jpg');
+            background: url('background/solar_F4.jpg');
             background-size: cover;
             background-position: center;
             padding: 80px 0;
@@ -1201,7 +1426,7 @@
 
         /* Home (Residential) Section CSS */
         .hero-home {
-            background: url('Photo-t/solar_H2.jpg');
+            background: url('background/solar_H2.jpg');
             background-size: cover;
             background-position: center;
             padding: 120px 0 80px;
@@ -1219,7 +1444,7 @@
         }
 
         .stats-home {
-            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('Photo-t/solar_H1.jpg');
+            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('background/solar_H1.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -1227,7 +1452,7 @@
         }
 
         .video-home {
-            background: url('Photo-t/solar_H4.jpg');
+            background: url('background/solar_H4.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -1246,7 +1471,7 @@
         }
 
         .portfolio-home {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('Photo-t/solar_H3.jpg');
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('background/solar_H3.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -1315,41 +1540,59 @@
                 <p>ตัวอย่างผลงานจริงจากองค์กรชั้นนำ ที่ไว้วางใจในระบบของเรา</p>
             </div>
 
-            <div class="portfolio-grid">
+                        <div class="portfolio-grid">
                 <div class="portfolio-card">
-                    <img src="Photo-t/10_0.jpg" alt="Industrial Factory">
+                    <img src="Photo-t/16_0.jpg" alt="Industrial Factory">
                     <div class="portfolio-info">
                         <h4>Industrial Factory</h4>
                     </div>
                 </div>
                 <div class="portfolio-card">
-                    <img src="Photo-t/11_0.jpg" alt="Industrial Factory" style="object-position: bottom;">
+                    <img src="Photo-t/13_0.jpg" alt="Commercial Rooftop">
+                    <div class="portfolio-info">
+                        <h4>Commercial Rooftop</h4>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="Photo-t/15_0.jpg" alt="Industrial Factory">
                     <div class="portfolio-info">
                         <h4>Industrial Factory</h4>
                     </div>
                 </div>
                 <div class="portfolio-card">
-                    <img src="Photo-t/12_0.jpg" alt="Industrial Factory">
+                    <img src="Photo-t/29_0.jpg" alt="Commercial Rooftop">
                     <div class="portfolio-info">
-                        <h4>Industrial Factory</h4>
+                        <h4>Commercial Rooftop</h4>
                     </div>
                 </div>
                 <div class="portfolio-card">
-                    <img src="Photo-t/17_0.jpg" alt="Office Building">
+                    <img src="Photo-t/LINE_ALBUM_2026.10.14_261014_11.jpg" alt="Solar Rooftop Installation">
                     <div class="portfolio-info">
-                        <h4>Office Building</h4>
+                        <h4>Solar Rooftop Installation</h4>
                     </div>
                 </div>
                 <div class="portfolio-card">
-                    <img src="Photo-t/19_0.jpg" alt="Office Building">
+                    <img src="Photo-t/LINE_ALBUM_2026.10.14_261014_19.jpg" alt="Factory Rooftop System">
                     <div class="portfolio-info">
-                        <h4>Office Building</h4>
+                        <h4>Factory Rooftop System</h4>
                     </div>
                 </div>
                 <div class="portfolio-card">
-                    <img src="Photo-t/21_0.jpg" alt="Office Building">
+                    <img src="Photo-t/LINE_ALBUM_2026.10.14_261014_25.jpg" alt="Warehouse Solar Project">
                     <div class="portfolio-info">
-                        <h4>Office Building</h4>
+                        <h4>Warehouse Solar Project</h4>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="Photo-t/LINE_ALBUM_2026.10.14_261014_16.jpg" alt="Corporate Office Installation">
+                    <div class="portfolio-info">
+                        <h4>Corporate Office Installation</h4>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="Photo-t/LINE_ALBUM_2026.10.14_261014_24.jpg" alt="Industrial Solar Project">
+                    <div class="portfolio-info">
+                        <h4>Industrial Solar Project</h4>
                     </div>
                 </div>
             </div>
@@ -1712,7 +1955,7 @@
 
             <div class="stats-container">
                 <div class="stats-left" style="flex: 1.2; padding: 30px;">
-                    <img src="Photo-t/solar_H2.jpg" alt="บ้านพักอาศัย"
+                    <img src="background/solar_H2.jpg" alt="บ้านพักอาศัย"
                         style="width: 100%; border-radius: 15px; margin-bottom: 20px; object-fit: cover; height: 180px;">
                     <h4 style="margin-bottom: 20px;"><i class="fa-solid fa-house text-red"
                             style="font-size: 1.2rem;"></i> บ้านพักอาศัย</h4>
@@ -1837,7 +2080,7 @@
 
             <div class="agri-portfolio-grid">
                 <div class="agri-portfolio-card">
-                    <img src="Photo-t/solar_H2.jpg" alt="บ้านเดี่ยว">
+                    <img src="background/solar_H2.jpg" alt="บ้านเดี่ยว">
                     <div class="agri-portfolio-info">
                         <div class="agri-icon"><i class="fa-solid fa-house"></i></div>
                         <div class="agri-details">
@@ -1848,7 +2091,7 @@
                     </div>
                 </div>
                 <div class="agri-portfolio-card">
-                    <img src="Photo-t/solar_H1.jpg" alt="บ้านสองชั้น">
+                    <img src="background/solar_H1.jpg" alt="บ้านสองชั้น">
                     <div class="agri-portfolio-info">
                         <div class="agri-icon"><i class="fa-solid fa-house-chimney"></i></div>
                         <div class="agri-details">
@@ -1859,7 +2102,7 @@
                     </div>
                 </div>
                 <div class="agri-portfolio-card">
-                    <img src="Photo-t/solar_H3.jpg" alt="บ้านพักอาศัยพร้อม EV Charger">
+                    <img src="background/solar_H3.jpg" alt="บ้านพักอาศัยพร้อม EV Charger">
                     <div class="agri-portfolio-info">
                         <div class="agri-icon"><i class="fa-solid fa-charging-station"></i></div>
                         <div class="agri-details">
@@ -2013,7 +2256,7 @@
                 </div>
 
                 <div class="qr-box">
-                    <img src="Photo-t/line.png" alt="LINE QR Code"
+                    <img src="background/line.png" alt="LINE QR Code"
                         style="width: 150px; height: 150px; object-fit: contain;">
                     <a href="#" class="btn-register">ลงทะเบียนเลย</a>
                     <p style="margin-top: 15px; font-size: 0.9rem;">พลังงานสะอาด<br>เพื่อธุรกิจที่แข็งแกร่งยิ่งขึ้น</p>
@@ -2117,6 +2360,335 @@
                     });
             });
         });
+    </script>
+
+    <!-- Lightbox Swiper Modal (Clean Image Display with Dotted Indicator) -->
+    <div id="imageLightboxModal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image Gallery Viewer">
+        <button id="lightboxCloseBtn" class="lightbox-close-btn" aria-label="Close popup"><i class="fa-solid fa-xmark"></i></button>
+
+        <div class="lightbox-stage" id="lightboxStage">
+            <div class="lightbox-slide" id="lightboxSlide">
+                <img id="lightboxMainImg" class="lightbox-img" src="" alt="Portfolio Image">
+            </div>
+        </div>
+
+        <div class="lightbox-dots-container" id="lightboxDots">
+            <!-- 6 dots dynamically created -->
+        </div>
+    </div>
+
+    <!-- Lightbox Swiper Script -->
+    <script>
+        (function() {
+                        // All images in the Photo-t folder, with the 9 featured portfolio images first
+            const allImages = [
+                'Photo-t/16_0.jpg',
+                'Photo-t/13_0.jpg',
+                'Photo-t/15_0.jpg',
+                'Photo-t/29_0.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_11.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_19.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_25.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_16.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_24.jpg',
+                'Photo-t/10_0.jpg',
+                'Photo-t/11_0.jpg',
+                'Photo-t/12_0.jpg',
+                'Photo-t/14_0.jpg',
+                'Photo-t/17_0.jpg',
+                'Photo-t/18_0.jpg',
+                'Photo-t/19_0.jpg',
+                'Photo-t/20_0.jpg',
+                'Photo-t/21_0.jpg',
+                'Photo-t/22_0.jpg',
+                'Photo-t/23_0.jpg',
+                'Photo-t/24_0.jpg',
+                'Photo-t/25_0.jpg',
+                'Photo-t/26_0.jpg',
+                'Photo-t/27_0.jpg',
+                'Photo-t/28_0.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_1.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_2.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_3.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_4.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_5.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_6.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_7.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_8.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_9.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_10.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_12.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_13.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_14.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_15.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_17.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_18.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_20.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_21.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_22.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_23.jpg',
+                'Photo-t/LINE_ALBUM_2026.10.14_261014_26.jpg'
+            ];
+
+            const modal = document.getElementById('imageLightboxModal');
+            const mainImg = document.getElementById('lightboxMainImg');
+            const dotsContainer = document.getElementById('lightboxDots');
+            const slideEl = document.getElementById('lightboxSlide');
+            const stageEl = document.getElementById('lightboxStage');
+            const closeBtn = document.getElementById('lightboxCloseBtn');
+
+            let currentIndex = 0;
+
+            // Generate the dotted indicators
+            function createDots() {
+                dotsContainer.innerHTML = '';
+                allImages.forEach((_, idx) => {
+                    const dot = document.createElement('div');
+                    dot.className = 'lightbox-dot' + (idx === currentIndex ? ' active' : '');
+                    dot.setAttribute('title', `ภาพที่ ${idx + 1}`);
+                    dot.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        goToIndex(idx);
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+            }
+
+            function updateDots() {
+                const dots = dotsContainer.querySelectorAll('.lightbox-dot');
+                dots.forEach((dot, idx) => {
+                    if (idx === currentIndex) {
+                        dot.classList.add('active');
+                        try {
+                            dot.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                        } catch (err) {}
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            function updateDisplay(withAnim = true) {
+                const src = allImages[currentIndex];
+                if (!src) return;
+
+                if (withAnim) {
+                    slideEl.style.opacity = '0';
+                    slideEl.style.transform = 'scale(0.96)';
+                    setTimeout(() => {
+                        mainImg.src = src;
+                        slideEl.style.opacity = '1';
+                        slideEl.style.transform = 'scale(1)';
+                    }, 120);
+                } else {
+                    mainImg.src = src;
+                    slideEl.style.opacity = '1';
+                    slideEl.style.transform = 'scale(1)';
+                }
+                updateDots();
+            }
+
+            function openLightbox(startIndex = 0) {
+                currentIndex = Math.max(0, Math.min(startIndex, allImages.length - 1));
+                createDots();
+                updateDisplay(false);
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % allImages.length;
+                updateDisplay(true);
+            }
+
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+                updateDisplay(true);
+            }
+
+            function goToIndex(idx) {
+                if (idx !== currentIndex && idx >= 0 && idx < allImages.length) {
+                    currentIndex = idx;
+                    updateDisplay(true);
+                }
+            }
+
+            // Close Controls
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeLightbox();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (!modal.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+            });
+
+            // Mouse wheel support
+            let wheelCooldown = false;
+            modal.addEventListener('wheel', (e) => {
+                if (!modal.classList.contains('active') || wheelCooldown) return;
+                if (Math.abs(e.deltaX) > 20 || Math.abs(e.deltaY) > 20) {
+                    wheelCooldown = true;
+                    if (e.deltaX > 20 || e.deltaY > 20) {
+                        nextImage();
+                    } else {
+                        prevImage();
+                    }
+                    setTimeout(() => { wheelCooldown = false; }, 300);
+                }
+            }, { passive: true });
+
+            // Instant Mouse Click & Drag Navigation
+            let isDragging = false;
+            let startX = 0;
+            let diffX = 0;
+            let hasMoved = false;
+
+            // Physical right mouse button / contextmenu support
+            modal.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                if (!modal.classList.contains('active')) return;
+                if (e.target.closest('#lightboxCloseBtn') || e.target.closest('#lightboxDots')) return;
+                if (e.clientX < window.innerWidth / 2) {
+                    prevImage();
+                } else {
+                    nextImage();
+                }
+            });
+
+            stageEl.addEventListener('mousedown', (e) => {
+                if (e.target.closest('#lightboxCloseBtn') || e.target.closest('#lightboxDots')) return;
+                startX = e.clientX;
+                diffX = 0;
+                hasMoved = false;
+                isDragging = true;
+                slideEl.style.transition = 'none';
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                diffX = e.clientX - startX;
+                if (Math.abs(diffX) > 6) {
+                    hasMoved = true;
+                    slideEl.style.transform = `translateX(${diffX}px) scale(${1 - Math.min(Math.abs(diffX) / 1000, 0.08)})`;
+                }
+            });
+
+            window.addEventListener('mouseup', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                slideEl.style.transition = 'transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1), opacity 0.25s ease';
+
+                if (hasMoved && Math.abs(diffX) > 35) {
+                    // Dragged enough to count as swipe
+                    if (diffX < -35) {
+                        nextImage();
+                    } else {
+                        prevImage();
+                    }
+                } else {
+                    // Clicked immediately without dragging!
+                    slideEl.style.transform = 'translateX(0) scale(1)';
+
+                    if (!hasMoved || Math.abs(diffX) <= 6) {
+                        if (e.target.closest('#lightboxCloseBtn') || e.target.closest('#lightboxDots')) return;
+
+                        // Click left half of screen/image -> Previous
+                        // Click right half of screen/image -> Next
+                        if (e.clientX < window.innerWidth / 2) {
+                            prevImage();
+                        } else {
+                            nextImage();
+                        }
+                    }
+                }
+                diffX = 0;
+                hasMoved = false;
+            });
+
+            // Touch Swipe & Tap for mobile
+            let touchStartX = 0;
+            let touchDiffX = 0;
+            let touchMoved = false;
+            let isTouching = false;
+
+            stageEl.addEventListener('touchstart', (e) => {
+                if (e.touches.length !== 1) return;
+                touchStartX = e.touches[0].clientX;
+                touchDiffX = 0;
+                touchMoved = false;
+                isTouching = true;
+                slideEl.style.transition = 'none';
+            }, { passive: true });
+
+            stageEl.addEventListener('touchmove', (e) => {
+                if (!isTouching) return;
+                const currentX = e.touches[0].clientX;
+                touchDiffX = currentX - touchStartX;
+
+                if (Math.abs(touchDiffX) > 6) {
+                    touchMoved = true;
+                    slideEl.style.transform = `translateX(${touchDiffX}px) scale(${1 - Math.min(Math.abs(touchDiffX) / 1000, 0.08)})`;
+                }
+            }, { passive: true });
+
+            stageEl.addEventListener('touchend', (e) => {
+                if (!isTouching) return;
+                isTouching = false;
+                slideEl.style.transition = 'transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1), opacity 0.25s ease';
+
+                if (touchMoved && Math.abs(touchDiffX) > 35) {
+                    if (touchDiffX < -35) {
+                        nextImage();
+                    } else {
+                        prevImage();
+                    }
+                } else {
+                    slideEl.style.transform = 'translateX(0) scale(1)';
+                    if (!touchMoved || Math.abs(touchDiffX) <= 6) {
+                        if (e.changedTouches && e.changedTouches.length > 0) {
+                            const tapX = e.changedTouches[0].clientX;
+                            if (tapX < window.innerWidth / 2) {
+                                prevImage();
+                            } else {
+                                nextImage();
+                            }
+                        }
+                    }
+                }
+                touchDiffX = 0;
+                touchMoved = false;
+            });
+
+            // Bind click to all portfolio cards in business section
+            const portfolioCards = document.querySelectorAll('.portfolio-section .portfolio-card');
+            portfolioCards.forEach((card, idx) => {
+                card.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const img = card.querySelector('img');
+                    const src = img ? img.getAttribute('src') : '';
+                    const foundIndex = allImages.indexOf(src);
+                    openLightbox(foundIndex !== -1 ? foundIndex : idx);
+                });
+            });
+
+            // "ดูผลงานทั้งหมด" button
+            const viewAllBtn = document.querySelector('.portfolio-section .btn-view-all');
+            if (viewAllBtn) {
+                viewAllBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openLightbox(0);
+                });
+            }
+        })();
     </script>
 </body>
 
