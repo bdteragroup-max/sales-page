@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERA Solar - โซลาร์เซลล์สำหรับภาคธุรกิจ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #e3000f;
+            --text-main: #222;
+            --text-muted: #555;
+            --bg-gray: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        body {
+            color: var(--text-main);
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('Photo-t/48f342f0-45e6-431e-bed8-f5900dc667f3.jpg');
+            background-size: cover;
+            background-position: top center;
+            padding: 100px 0 120px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 35%, rgba(255, 255, 255, 0.1) 60%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .hero .container,
+        .hero-agri .container,
+        .hero-home .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 1000px;
+            z-index: 1;
+            padding-top: 20px;
+        }
+
+        .pre-title {
+            display: none;
+        }
+
+        .hero h1,
+        .hero-agri h1,
+        .hero-home h1 {
+            font-size: 5.5rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: var(--primary);
+            font-weight: 800;
+            letter-spacing: -2px;
+            white-space: nowrap;
+        }
+
+        .hero h1 span,
+        .hero-agri h1 span,
+        .hero-home h1 span {
+            color: var(--text-main);
+            display: block;
+        }
+
+        .h1-divider {
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, rgba(227, 0, 15, 0) 100%);
+            width: 85%;
+            margin-bottom: 25px;
+            border-radius: 2px;
+        }
+
+        .hero h3,
+        .hero-agri h3,
+        .hero-home h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .hero h3 span,
+        .hero-agri h3 span,
+        .hero-home h3 span {
+            color: var(--primary);
+        }
+
+        .hero p.subtitle,
+        .hero-agri p.subtitle,
+        .hero-home p.subtitle {
+            font-size: 1.4rem;
+            color: #444;
+            margin-bottom: 75px;
+            max-width: 850px;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: nowrap;
+            margin-left: -35px;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 160px;
+        }
+
+        .feature-divider {
+            width: 1px;
+            height: 50px;
+            background-color: rgba(227, 0, 15, 0.25);
+            margin-top: 20px;
+        }
+
+        .feature-icon {
+            width: 90px;
+            height: 90px;
+            background-color: white;
+            color: var(--primary);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.6rem;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 20px rgba(227, 0, 15, 0.15);
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+            color: var(--text-main);
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 4.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        .section-title h2 span {
+            color: var(--text-main);
+        }
+
+        .section-title p {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+        }
+
+        /* Fixed Backgrounds for Middle Sections */
+        .portfolio-section {
+            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('Photo-t/Gemini_Generated_Image_2av86n2av86n2av8.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .stats-section {
+            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('Photo-t/Gemini_Generated_Image_1o7t5q1o7t5q1o7t.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .process-section {
+            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('Photo-t/Gemini_Generated_Image_yzwr28yzwr28yzwr.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .results-section {
+            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('Photo-t/Gemini_Generated_Image_djhzirdjhzirdjhz.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Results Section */
+        .results-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .video-wrapper {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-wrapper img {
+            width: 100%;
+            display: block;
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            border: 3px solid white;
+            transition: all 0.3s;
+        }
+
+        .play-btn:hover {
+            background-color: var(--primary);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .quote-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 700px;
+            margin: -80px auto 0;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .quote-box i {
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.2;
+        }
+
+        .quote-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .quote-author {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            padding: 80px 0;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .portfolio-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            background: #fff;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .portfolio-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: #f1f3f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #dee2e6;
+            font-size: 3rem;
+        }
+
+        .portfolio-info {
+            padding: 20px;
+            text-align: center;
+            background-color: #1a2b4c;
+            color: white;
+        }
+
+        .portfolio-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .portfolio-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .btn-view-all {
+            display: table;
+            margin: 0 auto;
+            padding: 10px 30px;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-view-all:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 100px 0;
+        }
+
+        .stats-container {
+            display: flex;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        .stats-left {
+            flex: 1.2;
+            padding: 50px;
+            border-right: 1px solid #eee;
+        }
+
+        .stats-left h4 {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .stat-row {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .stat-row span {
+            color: var(--text-muted);
+            font-size: clamp(0.75rem, 3.5vw, 1rem);
+            white-space: nowrap;
+        }
+
+        .stat-row strong {
+            font-size: clamp(1.1rem, 5vw, 1.6rem);
+            color: var(--text-main);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        .stats-middle {
+            flex: 1.1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .stats-middle::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            bottom: 20%;
+            width: 1px;
+            background-color: #eee;
+        }
+
+        .red-box {
+            background-color: var(--primary);
+            color: white;
+            padding: 35px 20px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 20px 50px rgba(227, 0, 15, 0.35);
+            width: 100%;
+            background: linear-gradient(135deg, #e3000f 0%, #a8000a 100%);
+        }
+
+        .red-box p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .red-box h2 {
+            font-size: 4.2rem;
+            margin: 5px 0 10px 0;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+
+        .green-text {
+            color: #1e9938;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .stats-right {
+            flex: 1.2;
+            padding: 50px 40px 50px 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stats-right-header {
+            margin-top: 55px;
+        }
+
+        .simple-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            padding-top: 20px;
+        }
+
+        .trend-down {
+            color: var(--primary);
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .chart-labels {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .chart-labels div {
+            text-align: center;
+        }
+
+        .chart-labels .val {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--text-main);
+            white-space: nowrap;
+        }
+
+        .chart-labels .lbl {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 80px 0;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 55px;
+            left: 110px;
+            right: 110px;
+            height: 2px;
+            background-color: #ddd;
+            z-index: 0;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 240px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-icon {
+            width: 110px;
+            height: 110px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(227, 0, 15, 0.3);
+            border: 6px solid white;
+            transition: transform 0.3s;
+        }
+
+        .step:hover .step-icon {
+            transform: scale(1.1);
+        }
+
+        .step h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .step p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-image: url('Photo-t/48f342f0-45e6-431e-bed8-f5900dc667f3.jpg');
+            background-size: cover;
+            background-position: bottom center;
+            padding: 80px 0 0;
+            position: relative;
+        }
+
+        .cta-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(to top, rgba(227, 0, 15, 0.95) 0%, rgba(227, 0, 15, 0.8) 100%);
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            padding: 120px 0 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .cta-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .cta-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-methods {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+        }
+
+        .qr-box {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            color: var(--text-main);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            width: 250px;
+        }
+
+        .qr-box img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 15px;
+        }
+
+        .btn-register {
+            background: var(--text-main);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .btn-register:hover {
+            background: #000;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: linear-gradient(rgba(245, 247, 250, 0.5), rgba(245, 247, 250, 0.6)), url('Photo-t/Gemini_Generated_Image_5gkalc5gkalc5gka.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 80px 0;
+        }
+
+        .form-agri {
+            background-image: linear-gradient(rgba(245, 247, 250, 0.5), rgba(245, 247, 250, 0.6)), url('Photo-t/solar_F1.jpg');
+        }
+
+        .form-home {
+            background-image: linear-gradient(rgba(245, 247, 250, 0.5), rgba(245, 247, 250, 0.6)), url('Photo-t/solar_H2.jpg');
+        }
+
+        .form-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .form-group label span {
+            color: var(--primary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Prompt', sans-serif;
+            transition: all 0.3s;
+            box-sizing: border-box;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(227, 0, 15, 0.1);
+        }
+
+        textarea.form-control {
+            resize: none;
+            overflow: hidden;
+            min-height: 80px;
+        }
+
+        .btn-submit {
+            background: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            font-family: 'Prompt', sans-serif;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background: #c2000d;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(227, 0, 15, 0.2);
+        }
+
+        .hidden-input {
+            display: none;
+            margin-top: 15px;
+        }
+
+        @media (min-width: 993px) {
+            .nowrap-desktop {
+                white-space: nowrap !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-container {
+                flex-direction: column;
+            }
+
+            .stats-left,
+            .stats-middle,
+            .stats-right {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                padding: 30px 20px;
+            }
+
+            .stats-right-header {
+                margin-top: 0;
+            }
+
+            .process-steps {
+                flex-wrap: wrap;
+                gap: 40px;
+                justify-content: center;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .cta-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .contact-methods {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .cta-overlay {
+                clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
+            }
+
+            .section-title h2 {
+                font-size: 3.8rem;
+            }
+
+            .hero h1,
+            .hero-agri h1,
+            .hero-home h1 {
+                font-size: 4rem;
+                white-space: normal;
+            }
+
+            .hero-content {
+                text-align: center;
+                margin: 0 auto;
+                max-width: 100%;
+            }
+
+            .features {
+                margin-left: 0;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .h1-divider {
+                width: 100%;
+                margin: 0 auto 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-left,
+            .stats-middle,
+            .stats-right {
+                padding: 25px 15px;
+            }
+
+            .stat-row {
+                gap: 5px;
+            }
+
+            .stat-row span {
+                font-size: 0.85rem;
+            }
+
+            .stat-row strong {
+                font-size: 1.25rem;
+                white-space: nowrap;
+                letter-spacing: -0.8px;
+            }
+
+            .red-box h2 {
+                font-size: 2.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 3.2rem;
+            }
+
+            .hero h1,
+            .hero-agri h1,
+            .hero-home h1 {
+                font-size: 3rem;
+                white-space: normal;
+            }
+
+            .hero h3,
+            .hero-agri h3,
+            .hero-home h3 {
+                font-size: 1.4rem;
+            }
+
+            .hero p.subtitle,
+            .hero-agri p.subtitle,
+            .hero-home p.subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 40px;
+            }
+
+            .features {
+                justify-content: center;
+                gap: 15px;
+                flex-wrap: wrap;
+                margin-left: 0;
+            }
+
+            .feature-divider {
+                display: none;
+            }
+
+            .feature-item {
+                width: 45%;
+                margin-bottom: 20px;
+            }
+
+            .hero::before,
+            .hero-agri::before,
+            .hero-home::before {
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.9) 60%, rgba(255, 255, 255, 0.4) 100%);
+            }
+        }
+
+        /* Agri Hero Section */
+        .hero-agri {
+            background-image: url('Photo-t/solar_F1.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 170px;
+            position: relative;
+        }
+
+        .hero-agri::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 45%, rgba(255, 255, 255, 0.7) 65%, rgba(255, 255, 255, 0.1) 100%);
+        }
+
+        .hero-agri .container {
+            position: relative;
+        }
+
+        /* Agri Portfolio Section */
+        .portfolio-agri {
+            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('Photo-t/solar_F3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 80px 0;
+        }
+
+        .agri-portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .agri-portfolio-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            background: #fff;
+            transition: transform 0.3s;
+        }
+
+        .agri-portfolio-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .agri-portfolio-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .agri-portfolio-info {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .agri-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .agri-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .agri-details p {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 2px;
+            font-weight: 500;
+        }
+
+        .text-red {
+            color: var(--primary);
+            width: 15px;
+            text-align: center;
+            margin-right: 5px;
+        }
+
+        .btn-view-agri {
+            display: flex;
+            margin: 0 auto;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            align-items: center;
+            gap: 10px;
+            width: fit-content;
+        }
+
+        .btn-view-agri:hover {
+            background-color: #c2000d;
+            color: white;
+        }
+
+        .btn-view-agri i {
+            background: white;
+            color: var(--primary);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        /* Agri Results Section */
+        .results-agri {
+            background: url('Photo-t/solar_F4.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .results-agri::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.3) 100%);
+        }
+
+        .agri-results-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .agri-results-text {
+            max-width: 500px;
+        }
+
+        .agri-results-text .section-title h2 {
+            font-size: 4rem;
+        }
+
+        .vertical-video-wrapper {
+            width: 320px;
+            height: 570px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            border: 8px solid white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-right: 15%;
+            backdrop-filter: blur(5px);
+        }
+
+        .vertical-video-wrapper .play-btn {
+            position: static;
+            transform: none;
+            margin-bottom: 15px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border: 3px solid #ccc;
+            width: 70px;
+            height: 70px;
+            color: #ccc;
+        }
+
+        .vertical-video-wrapper .play-btn:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .vertical-video-wrapper p {
+            color: #888;
+            font-size: 1rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        @media (max-width: 992px) {
+            .agri-portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .agri-results-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .agri-results-text {
+                margin: 0 auto;
+            }
+
+            .agri-results-text .section-title {
+                text-align: center !important;
+            }
+
+            .vertical-video-wrapper {
+                margin: 0 auto;
+            }
+
+            .results-agri::before {
+                background: rgba(255, 255, 255, 0.85);
+            }
+        }
+
+        /* Home (Residential) Section CSS */
+        .hero-home {
+            background: url('Photo-t/solar_H2.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0 80px;
+            position: relative;
+        }
+
+        .hero-home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 35%, rgba(255, 255, 255, 0.1) 60%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .stats-home {
+            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('Photo-t/solar_H1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 80px 0;
+        }
+
+        .video-home {
+            background: url('Photo-t/solar_H4.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .video-home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 45%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .portfolio-home {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('Photo-t/solar_H3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 80px 0;
+        }
+
+        @media (max-width: 768px) {
+            .agri-portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>โซลาร์เซลล์สำหรับ<br><span>ภาคธุรกิจและอุตสาหกรรม</span></h1>
+                <div class="h1-divider"></div>
+                <h3><span>ลดต้นทุนพลังงาน</span> เพิ่มประสิทธิภาพการดำเนินธุรกิจ</h3>
+                <p class="subtitle">ระบบพลังงานแสงอาทิตย์สำหรับโรงงาน อาคารสำนักงาน คลังสินค้า
+                    และธุรกิจที่มีการใช้ไฟฟ้าสูง ออกแบบระบบให้เหมาะสมกับรูปแบบการใช้พลังงานของแต่ละองค์กร</p>
+
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-coins"></i></div>
+                        <h4>ลดต้นทุน</h4>
+                        <p>ค่าไฟระยะยาว</p>
+                    </div>
+                    <div class="feature-divider"></div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-leaf"></i></div>
+                        <h4>พลังงานสะอาด</h4>
+                        <p>เป็นมิตรต่อสิ่งแวดล้อม</p>
+                    </div>
+                    <div class="feature-divider"></div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-chart-column"></i></div>
+                        <h4>ออกแบบระบบ</h4>
+                        <p>ตามความต้องการธุรกิจ</p>
+                    </div>
+                    <div class="feature-divider"></div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-gear"></i></div>
+                        <h4>ติดตั้งโดยทีมมืออาชีพ</h4>
+                        <p>ดูแลครบวงจร</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
+        <div class="container">
+            <div class="section-title">
+                <h2><span>ผลงานติดตั้ง</span><br><span style="color: var(--primary);"
+                        class="nowrap-desktop">โซลาร์เซลล์สำหรับภาคธุรกิจ</span></h2>
+                <p>ตัวอย่างผลงานจริงจากองค์กรชั้นนำ ที่ไว้วางใจในระบบของเรา</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <img src="Photo-t/10_0.jpg" alt="Industrial Factory">
+                    <div class="portfolio-info">
+                        <h4>Industrial Factory</h4>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="Photo-t/11_0.jpg" alt="Industrial Factory" style="object-position: bottom;">
+                    <div class="portfolio-info">
+                        <h4>Industrial Factory</h4>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="Photo-t/12_0.jpg" alt="Industrial Factory">
+                    <div class="portfolio-info">
+                        <h4>Industrial Factory</h4>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="Photo-t/17_0.jpg" alt="Office Building">
+                    <div class="portfolio-info">
+                        <h4>Office Building</h4>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="Photo-t/19_0.jpg" alt="Office Building">
+                    <div class="portfolio-info">
+                        <h4>Office Building</h4>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="Photo-t/21_0.jpg" alt="Office Building">
+                    <div class="portfolio-info">
+                        <h4>Office Building</h4>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="btn-view-all">ดูผลงานทั้งหมด <i class="fa-solid fa-chevron-right"
+                    style="margin-left: 5px; font-size: 0.8rem;"></i></a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-title">
+                <h2><span>ลดต้นทุนค่าไฟ</span>ได้อย่างเป็นรูปธรรม</h2>
+                <p>ตัวอย่างผลลัพธ์จากโครงการจริง</p>
+            </div>
+
+            <div class="stats-container">
+                <div class="stats-left">
+                    <h4><i class="fa-regular fa-building"></i> โรงงานผลิตชิ้นส่วนยานยนต์</h4>
+                    <div class="stat-row">
+                        <span>ก่อนติดตั้ง</span>
+                        <strong>1,000 kWp</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>ค่าไฟฟ้าต่อเดือน</span>
+                        <strong>650,000 บาท/เดือน</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>หลังติดตั้ง</span>
+                        <strong>450,000 บาท/เดือน</strong>
+                    </div>
+                </div>
+
+                <div class="stats-middle">
+                    <div class="red-box">
+                        <p>ลดค่าไฟได้ประมาณ</p>
+                        <h2>200,000</h2>
+                        <p>บาท/เดือน</p>
+                    </div>
+                    <div class="green-text">
+                        <i class="fa-solid fa-leaf"></i> คืนทุนภายใน 4-6 ปี พร้อมผลกำไรในระยะยาว
+                    </div>
+                </div>
+
+                <div class="stats-right">
+                    <div class="stats-right-header">
+                        <p
+                            style="text-align: center; font-size: 1.1rem; margin-bottom: 5px; font-weight: 700; color: var(--text-main);">
+                            เปรียบเทียบค่าใช้จ่าย - หลังติดตั้ง</p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); text-align: center;">(บาท/เดือน)</p>
+                    </div>
+
+                    <div class="simple-chart">
+                        <div class="trend-down">
+                            <i class="fa-solid fa-arrow-trend-down" style="font-size: 2rem;"></i>
+                            <div style="display: flex; flex-direction: column; align-items: center; line-height: 1.1;">
+                                <span style="font-size: 1.2rem; font-weight: 800;">ลดลง</span>
+                                <span style="font-size: 2rem; font-weight: 800;">30.8%</span>
+                            </div>
+                        </div>
+
+                        <div class="chart-labels">
+                            <div>
+                                <div class="val">650,000</div>
+                                <div class="lbl">ก่อนติดตั้ง</div>
+                            </div>
+                            <div>
+                                <div class="val">450,000</div>
+                                <div class="lbl">หลังติดตั้ง</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <div class="section-title">
+                <h2><span>ผลลัพธ์จาก</span>การใช้งานจริง</h2>
+                <p>ฟังประสบการณ์จากลูกค้าธุรกิจของเรา</p>
+            </div>
+
+            <div class="video-wrapper" style="aspect-ratio: 16/9; background: #000;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/V-V29Pgop7o?rel=0"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen style="display: block;"></iframe>
+            </div>
+
+            <div class="quote-box">
+                <i class="fa-solid fa-quote-left"></i>
+                <div>
+                    <p class="quote-text">"โซลาร์เซลล์ช่วยลดค่าไฟได้จริง
+                        และส่งผลดีต่อภาพลักษณ์ของบริษัทเราต่อสิ่งแวดล้อมอย่างยั่งยืน"</p>
+                    <p class="quote-author">ตัวแทนจากโรงงานอุตสาหกรรม</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="section-title">
+                <h2><span>สินค้าที่คุณสนใจ</span></h2>
+            </div>
+
+            <div class="form-container">
+                <form id="quote-form-1">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>1. ชื่อ-นามสกุล (Full Name) <span>**</span></label>
+                            <input type="text" class="form-control" name="FullName" required
+                                placeholder="นายตัวอย่าง ทดสอบ">
+                        </div>
+                        <div class="form-group">
+                            <label>2. ชื่อบริษัท (Company Name) <span>**</span></label>
+                            <input type="text" class="form-control" name="CompanyName" required
+                                placeholder="บริษัท ตัวอย่าง จำกัด">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>3. เลขประจำตัวผู้เสียภาษี (Tax ID)</label>
+                        <input type="text" class="form-control" name="TaxID" placeholder="0123456789123">
+                    </div>
+
+                    <div class="form-group">
+                        <label>4. ที่อยู่บริษัท (Company Address) <span>**</span></label>
+                        <textarea class="form-control" name="CompanyAddress" rows="2" required
+                            placeholder="ระบุที่อยู่ของบริษัทครบถ้วน"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>5. เบอร์โทรศัพท์ (Phone Number) <span>**</span></label>
+                            <input type="tel" class="form-control" name="PhoneNumber" required
+                                placeholder="08X-XXX-XXXX">
+                        </div>
+                        <div class="form-group">
+                            <label>6. อีเมล (Email)</label>
+                            <input type="email" class="form-control" name="Email" placeholder="example@company.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>7. หมวดหมู่สินค้าที่ต้องการขอใบเสนอราคา (Product Category) <span>**</span></label>
+                        <select class="form-control" id="product-category-1" name="ProductCategory" required
+                            onchange="toggleOtherInput(this, 'other-product-container-1', 'other-product-1')">
+                            <option value="" disabled selected>-- เลือกหมวดหมู่ --</option>
+                            <option value="inverter">Inverter (อินเวอร์เตอร์)</option>
+                            <option value="solar-roof">Solar Roof (แผงโซลาร์เซลล์)</option>
+                            <option value="solar-pump">Solar Pump (ปั๊มน้ำโซลาร์เซลล์)</option>
+                            <option value="other">Other (โปรดระบุ)</option>
+                        </select>
+
+                        <div class="hidden-input" id="other-product-container-1">
+                            <input type="text" class="form-control" id="other-product-1" name="OtherProduct"
+                                placeholder="โปรดระบุสินค้าเพิ่มเติม">
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="Sector" value="business">
+
+                    <button type="button" class="btn-submit">ขอรับใบเสนอราคา</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agri Hero Section -->
+    <section class="hero-agri">
+        <div class="container">
+            <div class="hero-content">
+                <h1>โซลาร์เซลล์สำหรับ<br><span>ภาคเกษตรกรรม</span></h1>
+                <div class="h1-divider"></div>
+                <h3><span>ลดต้นทุนพลังงาน</span> เพิ่มประสิทธิภาพการผลิตทางการเกษตร</h3>
+                <p class="subtitle">ระบบพลังงานแสงอาทิตย์สำหรับฟาร์ม สวนผลไม้ ระบบชลประทาน โรงเรือนเพาะปลูก
+                    และธุรกิจเกษตรกรรมที่มีการใช้ไฟฟ้าสูงในช่วงกลางวัน ออกแบบให้เหมาะสมกับรูปแบบการใช้งานของแต่ละพื้นที่
+                    ช่วยลดค่าใช้จ่ายและเพิ่มผลผลิตอย่างยั่งยืน</p>
+
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-coins"></i></div>
+                        <h4>ลดต้นทุน</h4>
+                        <p>ค่าไฟในการทำการเกษตร</p>
+                    </div>
+                    <div class="feature-divider"></div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-leaf"></i></div>
+                        <h4>พลังงานสะอาด</h4>
+                        <p>เป็นมิตรต่อสิ่งแวดล้อม<br>เพื่ออนาคตที่ยั่งยืน</p>
+                    </div>
+                    <div class="feature-divider"></div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-seedling"></i></div>
+                        <h4>เหมาะกับงานเกษตร</h4>
+                        <p>รองรับฟาร์ม สวนผลไม้<br>ระบบชลประทาน และโรงเรือน</p>
+                    </div>
+                    <div class="feature-divider"></div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-gear"></i></div>
+                        <h4>ติดตั้งโดยมืออาชีพ</h4>
+                        <p>มั่นใจในมาตรฐาน<br>ดูแลครบวงจร</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Agri Results Section -->
+    <section class="results-agri">
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="agri-results-content"
+                style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 40px;">
+                <div class="agri-results-text" style="width: 100%; max-width: none;">
+                    <div class="section-title" style="text-align: center; margin-bottom: 0;">
+                        <h2
+                            style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2; text-shadow: 0 0 20px rgba(255,255,255,1), 0 0 40px rgba(255,255,255,0.9);">
+                            ผลลัพธ์จากการใช้งานจริง</h2>
+                        <p
+                            style="color: var(--text-main); font-weight: 600; font-size: 1.25rem; margin-top: 15px; text-shadow: 0 0 15px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,0.9);">
+                            ชมวิดีโอการใช้งานระบบโซลาร์เซลล์สำหรับภาคเกษตร</p>
+                    </div>
+                </div>
+
+                <div class="vertical-video-wrapper"
+                    style="margin: 0; aspect-ratio: 9/16; width: 100%; max-width: 360px; height: auto; border-radius: 20px; border: 8px solid white; box-shadow: 0 20px 40px rgba(0,0,0,0.15); overflow: hidden; background: #000;">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/bCvZgtPUN5A?rel=0"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen style="display: block;"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section form-agri">
+        <div class="container">
+            <div class="section-title">
+                <h2><span>สินค้าที่คุณสนใจ</span></h2>
+            </div>
+
+            <div class="form-container">
+                <form id="quote-form-2">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>1. ชื่อ-นามสกุล (Full Name) <span>**</span></label>
+                            <input type="text" class="form-control" name="FullName" required
+                                placeholder="นายตัวอย่าง ทดสอบ">
+                        </div>
+                        <div class="form-group">
+                            <label>2. ชื่อบริษัท (Company Name) <span>**</span></label>
+                            <input type="text" class="form-control" name="CompanyName" required
+                                placeholder="บริษัท ตัวอย่าง จำกัด">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>3. เลขประจำตัวผู้เสียภาษี (Tax ID)</label>
+                        <input type="text" class="form-control" name="TaxID" placeholder="0123456789123">
+                    </div>
+
+                    <div class="form-group">
+                        <label>4. ที่อยู่บริษัท (Company Address) <span>**</span></label>
+                        <textarea class="form-control" name="CompanyAddress" rows="2" required
+                            placeholder="ระบุที่อยู่ของบริษัทครบถ้วน"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>5. เบอร์โทรศัพท์ (Phone Number) <span>**</span></label>
+                            <input type="tel" class="form-control" name="PhoneNumber" required
+                                placeholder="08X-XXX-XXXX">
+                        </div>
+                        <div class="form-group">
+                            <label>6. อีเมล (Email)</label>
+                            <input type="email" class="form-control" name="Email" placeholder="example@company.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>7. หมวดหมู่สินค้าที่ต้องการขอใบเสนอราคา (Product Category) <span>**</span></label>
+                        <select class="form-control" id="product-category-2" name="ProductCategory" required
+                            onchange="toggleOtherInput(this, 'other-product-container-2', 'other-product-2')">
+                            <option value="" disabled selected>-- เลือกหมวดหมู่ --</option>
+                            <option value="inverter">Inverter (อินเวอร์เตอร์)</option>
+                            <option value="solar-roof">Solar Roof (แผงโซลาร์เซลล์)</option>
+                            <option value="solar-pump">Solar Pump (ปั๊มน้ำโซลาร์เซลล์)</option>
+                            <option value="other">Other (โปรดระบุ)</option>
+                        </select>
+
+                        <div class="hidden-input" id="other-product-container-2">
+                            <input type="text" class="form-control" id="other-product-2" name="OtherProduct"
+                                placeholder="โปรดระบุสินค้าเพิ่มเติม">
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="Sector" value="agriculture">
+
+                    <button type="button" class="btn-submit">ขอรับใบเสนอราคา</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Hero Section -->
+    <section class="hero-home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>โซลาร์เซลล์สำหรับ<br><span>บ้านพักอาศัย</span></h1>
+                <div class="h1-divider"></div>
+                <h3><span>ลดค่าไฟบ้าน</span> เพิ่มความคุ้มค่าในระยะยาว</h3>
+                <p class="subtitle">ระบบพลังงานแสงอาทิตย์สำหรับบ้านเดี่ยว ทาวน์โฮม และบ้านพักอาศัย
+                    ที่มีการใช้ไฟฟ้าในช่วงกลางวันสูง ออกแบบให้เหมาะสมกับรูปแบบการใช้ไฟของแต่ละครอบครัว</p>
+
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-coins"></i></div>
+                        <h4>ลดค่าไฟ</h4>
+                        <p>ประหยัดค่าใช้จ่ายระยะยาว</p>
+                    </div>
+                    <div class="feature-divider"></div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-leaf"></i></div>
+                        <h4>พลังงานสะอาด</h4>
+                        <p>เป็นมิตรต่อสิ่งแวดล้อม</p>
+                    </div>
+                    <div class="feature-divider"></div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-house"></i></div>
+                        <h4>ออกแบบเหมาะกับบ้าน</h4>
+                        <p>ตามรูปแบบการใช้พลังงาน</p>
+                    </div>
+                    <div class="feature-divider"></div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-gear"></i></div>
+                        <h4>ติดตั้งโดยมืออาชีพ</h4>
+                        <p>มั่นใจในมาตรฐานและความปลอดภัย</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Stats Section -->
+    <section class="stats-home">
+        <div class="container">
+            <div class="section-title">
+                <h2><span>ลดค่าไฟบ้าน</span>ได้อย่างเป็นรูปธรรม</h2>
+                <p>ตัวอย่างการใช้งานจริง จากบ้านพักอาศัยของเรา</p>
+            </div>
+
+            <div class="stats-container">
+                <div class="stats-left" style="flex: 1.2; padding: 30px;">
+                    <img src="Photo-t/solar_H2.jpg" alt="บ้านพักอาศัย"
+                        style="width: 100%; border-radius: 15px; margin-bottom: 20px; object-fit: cover; height: 180px;">
+                    <h4 style="margin-bottom: 20px;"><i class="fa-solid fa-house text-red"
+                            style="font-size: 1.2rem;"></i> บ้านพักอาศัย</h4>
+                    <div class="stat-row">
+                        <span><i class="fa-solid fa-solar-panel text-red"></i> ขนาดระบบ</span>
+                        <strong>10 kWp</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span><i class="fa-solid fa-coins text-red"></i> ค่าไฟก่อนติดตั้ง</span>
+                        <strong>18,000 บาท</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span><i class="fa-solid fa-coins text-red"></i> หลังติดตั้ง</span>
+                        <strong>9,500 บาท</strong>
+                    </div>
+                </div>
+
+                <div class="stats-middle">
+                    <div class="red-box" style="padding: 40px 20px;">
+                        <div class="feature-icon"
+                            style="margin: 0 auto 15px; border-color: white; color: var(--primary); background: white; width: 70px; height: 70px; font-size: 2rem;">
+                            <i class="fa-solid fa-coins"></i>
+                        </div>
+                        <p>ลดค่าไฟได้ประมาณ</p>
+                        <h2 style="font-size: 4rem;">8,500</h2>
+                        <p>บาท/เดือน</p>
+                    </div>
+                    <div
+                        style="color: var(--primary); background: white; border: 2px solid var(--primary); padding: 12px 20px; border-radius: 30px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: -20px; position: relative; z-index: 2; width: 90%; margin-left: auto; margin-right: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <i class="fa-solid fa-arrow-trend-up"></i> คืนทุนโดยเฉลี่ย <span
+                            style="font-size: 1.3rem; color: var(--text-main);">3 - 5 ปี</span>
+                    </div>
+                </div>
+
+                <div class="stats-right">
+                    <div class="stats-right-header">
+                        <p
+                            style="text-align: center; font-size: 1.2rem; margin-bottom: 10px; font-weight: 700; color: var(--text-main);">
+                            <i class="fa-solid fa-chart-simple text-red"></i> ค่าไฟเฉลี่ยต่อเดือน
+                        </p>
+                    </div>
+                    <div class="simple-chart" style="margin-top: 30px; align-items: flex-end; padding-bottom: 0;">
+                        <div class="chart-labels"
+                            style="width: 100%; display: flex; justify-content: space-around; text-align: center;">
+                            <div
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                                <div class="val" style="font-weight: 700; margin-bottom: 5px;">18,000</div>
+                                <div style="height: 140px; width: 60px; background-color: #888; margin: 0 auto;"></div>
+                                <div class="lbl" style="margin-top: 10px;">ก่อนติดตั้ง</div>
+                            </div>
+                            <div
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                                <div class="val text-red" style="font-weight: 700; margin-bottom: 5px;">9,500</div>
+                                <div
+                                    style="height: 75px; width: 60px; background-color: var(--primary); margin: 0 auto;">
+                                </div>
+                                <div class="lbl" style="margin-top: 10px;">หลังติดตั้ง</div>
+                            </div>
+                        </div>
+                        <div
+                            style="position: absolute; bottom: 32px; left: 0; width: 100%; height: 1px; background: #ccc;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Video Section -->
+    <section class="video-home">
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="agri-results-content"
+                style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 40px;">
+                <div class="agri-results-text" style="width: 100%; max-width: none;">
+                    <div class="section-title" style="text-align: center; margin-bottom: 0;">
+                        <h2 class="nowrap-desktop"
+                            style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2; letter-spacing: -1px; text-shadow: 0 0 20px rgba(255,255,255,1), 0 0 40px rgba(255,255,255,0.9);">
+                            เริ่มวางแผน <span style="color: var(--primary);">ลดค่าไฟบ้าน</span> ของคุณ</h2>
+                        <p
+                            style="color: var(--text-main); font-weight: 600; font-size: 1.25rem; margin-top: 15px; text-shadow: 0 0 15px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,0.9);">
+                            ปรึกษาและประเมินระบบเบื้องต้นกับทีมงานของเรา</p>
+                    </div>
+                </div>
+
+                <div class="video-home-content"
+                    style="width: 100%; max-width: 900px; display: flex; flex-direction: column; align-items: center;">
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <h3
+                            style="color: var(--primary); font-size: 1.8rem; margin-bottom: 5px; font-weight: 800; text-shadow: 0 0 15px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,0.9);">
+                            พลังงานสะอาด</h3>
+                        <p
+                            style="font-weight: 700; color: var(--text-main); font-size: 1.15rem; margin-bottom: 0; text-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,0.9);">
+                            เพื่ออนาคตที่ดีกว่าของทุกครอบครัว</p>
+                    </div>
+                    <div class="video-wrapper"
+                        style="margin: 0; width: 100%; aspect-ratio: 16/9; border-radius: 20px; border: 8px solid white; box-shadow: 0 20px 40px rgba(0,0,0,0.15); overflow: hidden; background: #000;">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/y0Om3oZs2Qg?rel=0"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen style="display: block;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Portfolio Section -->
+    <section class="portfolio-home">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="font-size: clamp(2.2rem, 8vw, 4.5rem);">
+                    <span style="white-space: nowrap;">ผลงานติดตั้ง</span><wbr><span><span
+                            style="white-space: nowrap;">โซลาร์เซลล์</span><wbr><span
+                            style="white-space: nowrap;">สำหรับ</span><wbr><span
+                            style="white-space: nowrap;">บ้านพักอาศัย</span></span>
+                </h2>
+                <p>
+                    <span style="white-space: nowrap;">ตัวอย่างผลงานจริงจากบ้าน</span><wbr><span
+                        style="white-space: nowrap;">ที่ไว้วางใจในระบบของเรา</span>
+                </p>
+            </div>
+
+            <div class="agri-portfolio-grid">
+                <div class="agri-portfolio-card">
+                    <img src="Photo-t/solar_H2.jpg" alt="บ้านเดี่ยว">
+                    <div class="agri-portfolio-info">
+                        <div class="agri-icon"><i class="fa-solid fa-house"></i></div>
+                        <div class="agri-details">
+                            <h4>บ้านเดี่ยว</h4>
+                            <p><i class="fa-solid fa-bolt text-red"></i> ขนาด 5 kWp</p>
+                            <p><i class="fa-solid fa-location-dot text-red"></i> กรุงเทพมหานคร</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="agri-portfolio-card">
+                    <img src="Photo-t/solar_H1.jpg" alt="บ้านสองชั้น">
+                    <div class="agri-portfolio-info">
+                        <div class="agri-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                        <div class="agri-details">
+                            <h4>บ้านสองชั้น</h4>
+                            <p><i class="fa-solid fa-bolt text-red"></i> ขนาด 8 kWp</p>
+                            <p><i class="fa-solid fa-location-dot text-red"></i> จังหวัดสมุทรปราการ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="agri-portfolio-card">
+                    <img src="Photo-t/solar_H3.jpg" alt="บ้านพักอาศัยพร้อม EV Charger">
+                    <div class="agri-portfolio-info">
+                        <div class="agri-icon"><i class="fa-solid fa-charging-station"></i></div>
+                        <div class="agri-details">
+                            <h4>บ้านพักอาศัยพร้อม EV Charger</h4>
+                            <p><i class="fa-solid fa-bolt text-red"></i> ขนาด 10 kWp</p>
+                            <p><i class="fa-solid fa-location-dot text-red"></i> จังหวัดเชียงใหม่</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: right; margin-top: 30px;">
+                <a href="#" class="btn-submit"
+                    style="display: inline-block; padding: 12px 30px; border-radius: 30px; font-size: 1.1rem; text-decoration: none; width: auto;"><i
+                        class="fa-solid fa-chevron-right" style="margin-right: 5px;"></i> ดูผลงานทั้งหมด</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Form Section -->
+    <section class="form-section form-home">
+        <div class="container">
+            <div class="section-title">
+                <h2><span>สินค้าที่คุณสนใจ</span></h2>
+            </div>
+
+            <div class="form-container">
+                <form id="quote-form-3">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>1. ชื่อ-นามสกุล (Full Name) <span>**</span></label>
+                            <input type="text" class="form-control" name="FullName" required
+                                placeholder="นายตัวอย่าง ทดสอบ">
+                        </div>
+                        <div class="form-group">
+                            <label>2. ชื่อบริษัท (Company Name) <span>**</span></label>
+                            <input type="text" class="form-control" name="CompanyName" required
+                                placeholder="บริษัท ตัวอย่าง จำกัด">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>3. เลขประจำตัวผู้เสียภาษี (Tax ID)</label>
+                        <input type="text" class="form-control" name="TaxID" placeholder="0123456789123">
+                    </div>
+
+                    <div class="form-group">
+                        <label>4. ที่อยู่บริษัท (Company Address) <span>**</span></label>
+                        <textarea class="form-control" name="CompanyAddress" rows="2" required
+                            placeholder="ระบุที่อยู่ของบริษัทครบถ้วน"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>5. เบอร์โทรศัพท์ (Phone Number) <span>**</span></label>
+                            <input type="tel" class="form-control" name="PhoneNumber" required
+                                placeholder="08X-XXX-XXXX">
+                        </div>
+                        <div class="form-group">
+                            <label>6. อีเมล (Email)</label>
+                            <input type="email" class="form-control" name="Email" placeholder="example@company.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>7. หมวดหมู่สินค้าที่ต้องการขอใบเสนอราคา (Product Category) <span>**</span></label>
+                        <select class="form-control" id="product-category-3" name="ProductCategory" required
+                            onchange="toggleOtherInput(this, 'other-product-container-3', 'other-product-3')">
+                            <option value="" disabled selected>-- เลือกหมวดหมู่ --</option>
+                            <option value="inverter">Inverter (อินเวอร์เตอร์)</option>
+                            <option value="solar-roof">Solar Roof (แผงโซลาร์เซลล์)</option>
+                            <option value="solar-pump">Solar Pump (ปั๊มน้ำโซลาร์เซลล์)</option>
+                            <option value="other">Other (โปรดระบุ)</option>
+                        </select>
+
+                        <div class="hidden-input" id="other-product-container-3">
+                            <input type="text" class="form-control" id="other-product-3" name="OtherProduct"
+                                placeholder="โปรดระบุสินค้าเพิ่มเติม">
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="Sector" value="home">
+
+                    <button type="button" class="btn-submit">ขอรับใบเสนอราคา</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-title">
+                <h2><span>ครบวงจร</span> ดูแลทุกขั้นตอน</h2>
+                <p>ให้ธุรกิจของคุณมั่นใจในทุกการลงทุน</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-icon"><i class="fa-regular fa-comments"></i></div>
+                    <h4>1. ให้คำปรึกษา<br>และวิเคราะห์หน้างาน</h4>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fa-solid fa-file-signature"></i></div>
+                    <h4>2. ออกแบบระบบ<br>ที่เหมาะสม</h4>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+                    <h4>3. ติดตั้งโดยทีมมืออาชีพ<br>และควบคุมมาตรฐาน</h4>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fa-solid fa-wrench"></i></div>
+                    <h4>4. บริการหลังการขาย<br>และดูแลระยะยาว</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-overlay"></div>
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2>เริ่มวางแผนลดต้นทุนพลังงาน<br>ให้ธุรกิจของคุณ</h2>
+                    <p>ปรึกษาและรับข้อเสนอเบื้องต้นกับทีมงานของเรา</p>
+
+                    <div class="contact-methods">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <div style="font-size: 0.85rem;">ติดต่อเรา</div>
+                                <strong>02-328-0801</strong>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-brands fa-line"></i>
+                            <div>
+                                <div style="font-size: 0.85rem;">LINE OA</div>
+                                <strong>@teragroup</strong>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-regular fa-file-lines"></i>
+                            <div>
+                                <div style="font-size: 0.85rem;">ขอใบเสนอราคา</div>
+                                <strong>ได้ภายใน 24 ชั่วโมง</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="qr-box">
+                    <img src="Photo-t/line.png" alt="LINE QR Code"
+                        style="width: 150px; height: 150px; object-fit: contain;">
+                    <a href="#" class="btn-register">ลงทะเบียนเลย</a>
+                    <p style="margin-top: 15px; font-size: 0.9rem;">พลังงานสะอาด<br>เพื่อธุรกิจที่แข็งแกร่งยิ่งขึ้น</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleOtherInput(selectElement, containerId, inputId) {
+            const otherContainer = document.getElementById(containerId);
+            const otherInput = document.getElementById(inputId);
+
+            if (selectElement.value === 'other') {
+                otherContainer.style.display = 'block';
+                otherInput.required = true;
+                otherInput.focus();
+            } else {
+                otherContainer.style.display = 'none';
+                otherInput.required = false;
+            }
+        }
+
+        // Auto-resize textarea as user types
+        const textareas = document.querySelectorAll('textarea.form-control');
+        textareas.forEach(textarea => {
+            textarea.addEventListener('input', function () {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+            // Initial sizing
+            if (textarea.scrollHeight > 0) {
+                textarea.style.height = textarea.scrollHeight + 'px';
+            }
+        });
+
+        // ==========================================
+        // Google Sheets Integration
+        // ==========================================
+        // *** IMPORTANT: Replace this URL with your deployed Google Apps Script Web App URL ***
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbypyrcVAmYCEbGrQ0feHFUYg8OFiopLiGr9kJLXOKIRQLTIZNIS4V8uKhCD449MLuKbgA/exec';
+
+        const submitButtons = document.querySelectorAll('.btn-submit');
+        submitButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                // If this is the form submit button
+                const form = this.closest('form');
+                if (!form) return;
+
+                e.preventDefault();
+
+                // Check HTML5 Form Validation
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                // UI Loading State
+                const originalText = this.innerText;
+                this.innerText = 'กำลังส่งข้อมูล...';
+                this.disabled = true;
+
+                // Gather Data
+                const formData = new FormData(form);
+                const urlEncodedData = new URLSearchParams(formData).toString();
+
+                // Send to Google Sheets Apps Script
+                fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // required to bypass CORS blocking from browser
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: urlEncodedData
+                })
+                    .then(response => {
+                        Swal.fire({
+                            title: 'ส่งข้อมูลสำเร็จ!',
+                            text: 'เจ้าหน้าที่จะติดต่อกลับไปทางเบอร์โทรศัพท์ที่ท่านระบุไว้',
+                            icon: 'success',
+                            confirmButtonText: 'ตกลง',
+                            confirmButtonColor: '#e3000f'
+                        });
+                        form.reset();
+                        // Reset any custom toggle fields
+                        const hiddenInputs = form.querySelectorAll('.hidden-input');
+                        hiddenInputs.forEach(input => {
+                            input.style.display = 'none';
+                            const internalInput = input.querySelector('input');
+                            if (internalInput) internalInput.required = false;
+                        });
+                    })
+                    .catch(error => {
+                        alert('เกิดข้อผิดพลาดในการส่งข้อมูล กรุณาลองใหม่อีกครั้ง');
+                        console.error('Error!', error.message);
+                    })
+                    .finally(() => {
+                        // Reset UI
+                        this.innerText = originalText;
+                        this.disabled = false;
+                    });
+            });
+        });
+    </script>
+</body>
+
+</html>
