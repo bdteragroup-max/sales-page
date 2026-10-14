@@ -54,8 +54,7 @@
         }
 
         .hero .container,
-        .hero-agri .container,
-        .hero-home .container {
+        .hero-agri .container {
             position: relative;
             z-index: 2;
         }
@@ -72,8 +71,7 @@
         }
 
         .hero h1,
-        .hero-agri h1,
-        .hero-home h1 {
+        .hero-agri h1 {
             font-size: 5.5rem;
             line-height: 1.1;
             margin-bottom: 25px;
@@ -84,8 +82,7 @@
         }
 
         .hero h1 span,
-        .hero-agri h1 span,
-        .hero-home h1 span {
+        .hero-agri h1 span {
             color: var(--text-main);
             display: block;
         }
@@ -99,8 +96,7 @@
         }
 
         .hero h3,
-        .hero-agri h3,
-        .hero-home h3 {
+        .hero-agri h3 {
             font-size: 2rem;
             margin-bottom: 15px;
             font-weight: 800;
@@ -108,14 +104,12 @@
         }
 
         .hero h3 span,
-        .hero-agri h3 span,
-        .hero-home h3 span {
+        .hero-agri h3 span {
             color: var(--primary);
         }
 
         .hero p.subtitle,
-        .hero-agri p.subtitle,
-        .hero-home p.subtitle {
+        .hero-agri p.subtitle {
             font-size: 1.4rem;
             color: #444;
             margin-bottom: 75px;
@@ -939,10 +933,6 @@
             background-image: linear-gradient(rgba(245, 247, 250, 0.5), rgba(245, 247, 250, 0.6)), url('background/solar_F1.jpg');
         }
 
-        .form-home {
-            background-image: linear-gradient(rgba(245, 247, 250, 0.5), rgba(245, 247, 250, 0.6)), url('background/solar_H2.jpg');
-        }
-
         .form-container {
             max-width: 850px;
             margin: 0 auto;
@@ -1091,8 +1081,7 @@
             }
 
             .hero h1,
-            .hero-agri h1,
-            .hero-home h1 {
+            .hero-agri h1 {
                 font-size: 4rem;
                 white-space: normal;
             }
@@ -1149,21 +1138,18 @@
             }
 
             .hero h1,
-            .hero-agri h1,
-            .hero-home h1 {
+            .hero-agri h1 {
                 font-size: 3rem;
                 white-space: normal;
             }
 
             .hero h3,
-            .hero-agri h3,
-            .hero-home h3 {
+            .hero-agri h3 {
                 font-size: 1.4rem;
             }
 
             .hero p.subtitle,
-            .hero-agri p.subtitle,
-            .hero-home p.subtitle {
+            .hero-agri p.subtitle {
                 font-size: 1.1rem;
                 margin-bottom: 40px;
             }
@@ -1185,8 +1171,7 @@
             }
 
             .hero::before,
-            .hero-agri::before,
-            .hero-home::before {
+            .hero-agri::before {
                 background: linear-gradient(to bottom, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.9) 60%, rgba(255, 255, 255, 0.4) 100%);
             }
         }
@@ -1424,59 +1409,7 @@
             }
         }
 
-        /* Home (Residential) Section CSS */
-        .hero-home {
-            background: url('background/solar_H2.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 120px 0 80px;
-            position: relative;
-        }
 
-        .hero-home::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 35%, rgba(255, 255, 255, 0.1) 60%, rgba(255, 255, 255, 0) 100%);
-        }
-
-        .stats-home {
-            background: linear-gradient(rgba(235, 238, 242, 0.8), rgba(235, 238, 242, 0.8)), url('background/solar_H1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            padding: 80px 0;
-        }
-
-        .video-home {
-            background: url('background/solar_H4.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            padding: 80px 0;
-            position: relative;
-        }
-
-        .video-home::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 45%, rgba(255, 255, 255, 0) 100%);
-        }
-
-        .portfolio-home {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('background/solar_H3.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            padding: 80px 0;
-        }
 
         @media (max-width: 768px) {
             .agri-portfolio-grid {
@@ -1906,291 +1839,7 @@
         </div>
     </section>
 
-    <!-- Home Hero Section -->
-    <section class="hero-home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>โซลาร์เซลล์สำหรับ<br><span>บ้านพักอาศัย</span></h1>
-                <div class="h1-divider"></div>
-                <h3><span>ลดค่าไฟบ้าน</span> เพิ่มความคุ้มค่าในระยะยาว</h3>
-                <p class="subtitle">ระบบพลังงานแสงอาทิตย์สำหรับบ้านเดี่ยว ทาวน์โฮม และบ้านพักอาศัย
-                    ที่มีการใช้ไฟฟ้าในช่วงกลางวันสูง ออกแบบให้เหมาะสมกับรูปแบบการใช้ไฟของแต่ละครอบครัว</p>
 
-                <div class="features">
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fa-solid fa-coins"></i></div>
-                        <h4>ลดค่าไฟ</h4>
-                        <p>ประหยัดค่าใช้จ่ายระยะยาว</p>
-                    </div>
-                    <div class="feature-divider"></div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fa-solid fa-leaf"></i></div>
-                        <h4>พลังงานสะอาด</h4>
-                        <p>เป็นมิตรต่อสิ่งแวดล้อม</p>
-                    </div>
-                    <div class="feature-divider"></div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fa-solid fa-house"></i></div>
-                        <h4>ออกแบบเหมาะกับบ้าน</h4>
-                        <p>ตามรูปแบบการใช้พลังงาน</p>
-                    </div>
-                    <div class="feature-divider"></div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fa-solid fa-gear"></i></div>
-                        <h4>ติดตั้งโดยมืออาชีพ</h4>
-                        <p>มั่นใจในมาตรฐานและความปลอดภัย</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Home Stats Section -->
-    <section class="stats-home">
-        <div class="container">
-            <div class="section-title">
-                <h2><span>ลดค่าไฟบ้าน</span>ได้อย่างเป็นรูปธรรม</h2>
-                <p>ตัวอย่างการใช้งานจริง จากบ้านพักอาศัยของเรา</p>
-            </div>
-
-            <div class="stats-container">
-                <div class="stats-left" style="flex: 1.2; padding: 30px;">
-                    <img src="background/solar_H2.jpg" alt="บ้านพักอาศัย"
-                        style="width: 100%; border-radius: 15px; margin-bottom: 20px; object-fit: cover; height: 180px;">
-                    <h4 style="margin-bottom: 20px;"><i class="fa-solid fa-house text-red"
-                            style="font-size: 1.2rem;"></i> บ้านพักอาศัย</h4>
-                    <div class="stat-row">
-                        <span><i class="fa-solid fa-solar-panel text-red"></i> ขนาดระบบ</span>
-                        <strong>10 kWp</strong>
-                    </div>
-                    <div class="stat-row">
-                        <span><i class="fa-solid fa-coins text-red"></i> ค่าไฟก่อนติดตั้ง</span>
-                        <strong>18,000 บาท</strong>
-                    </div>
-                    <div class="stat-row">
-                        <span><i class="fa-solid fa-coins text-red"></i> หลังติดตั้ง</span>
-                        <strong>9,500 บาท</strong>
-                    </div>
-                </div>
-
-                <div class="stats-middle">
-                    <div class="red-box" style="padding: 40px 20px;">
-                        <div class="feature-icon"
-                            style="margin: 0 auto 15px; border-color: white; color: var(--primary); background: white; width: 70px; height: 70px; font-size: 2rem;">
-                            <i class="fa-solid fa-coins"></i>
-                        </div>
-                        <p>ลดค่าไฟได้ประมาณ</p>
-                        <h2 style="font-size: 4rem;">8,500</h2>
-                        <p>บาท/เดือน</p>
-                    </div>
-                    <div
-                        style="color: var(--primary); background: white; border: 2px solid var(--primary); padding: 12px 20px; border-radius: 30px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: -20px; position: relative; z-index: 2; width: 90%; margin-left: auto; margin-right: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                        <i class="fa-solid fa-arrow-trend-up"></i> คืนทุนโดยเฉลี่ย <span
-                            style="font-size: 1.3rem; color: var(--text-main);">3 - 5 ปี</span>
-                    </div>
-                </div>
-
-                <div class="stats-right">
-                    <div class="stats-right-header">
-                        <p
-                            style="text-align: center; font-size: 1.2rem; margin-bottom: 10px; font-weight: 700; color: var(--text-main);">
-                            <i class="fa-solid fa-chart-simple text-red"></i> ค่าไฟเฉลี่ยต่อเดือน
-                        </p>
-                    </div>
-                    <div class="simple-chart" style="margin-top: 30px; align-items: flex-end; padding-bottom: 0;">
-                        <div class="chart-labels"
-                            style="width: 100%; display: flex; justify-content: space-around; text-align: center;">
-                            <div
-                                style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
-                                <div class="val" style="font-weight: 700; margin-bottom: 5px;">18,000</div>
-                                <div style="height: 140px; width: 60px; background-color: #888; margin: 0 auto;"></div>
-                                <div class="lbl" style="margin-top: 10px;">ก่อนติดตั้ง</div>
-                            </div>
-                            <div
-                                style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
-                                <div class="val text-red" style="font-weight: 700; margin-bottom: 5px;">9,500</div>
-                                <div
-                                    style="height: 75px; width: 60px; background-color: var(--primary); margin: 0 auto;">
-                                </div>
-                                <div class="lbl" style="margin-top: 10px;">หลังติดตั้ง</div>
-                            </div>
-                        </div>
-                        <div
-                            style="position: absolute; bottom: 32px; left: 0; width: 100%; height: 1px; background: #ccc;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Home Video Section -->
-    <section class="video-home">
-        <div class="container" style="position: relative; z-index: 2;">
-            <div class="agri-results-content"
-                style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 40px;">
-                <div class="agri-results-text" style="width: 100%; max-width: none;">
-                    <div class="section-title" style="text-align: center; margin-bottom: 0;">
-                        <h2 class="nowrap-desktop"
-                            style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2; letter-spacing: -1px; text-shadow: 0 0 20px rgba(255,255,255,1), 0 0 40px rgba(255,255,255,0.9);">
-                            เริ่มวางแผน <span style="color: var(--primary);">ลดค่าไฟบ้าน</span> ของคุณ</h2>
-                        <p
-                            style="color: var(--text-main); font-weight: 600; font-size: 1.25rem; margin-top: 15px; text-shadow: 0 0 15px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,0.9);">
-                            ปรึกษาและประเมินระบบเบื้องต้นกับทีมงานของเรา</p>
-                    </div>
-                </div>
-
-                <div class="video-home-content"
-                    style="width: 100%; max-width: 900px; display: flex; flex-direction: column; align-items: center;">
-                    <div style="text-align: center; margin-bottom: 30px;">
-                        <h3
-                            style="color: var(--primary); font-size: 1.8rem; margin-bottom: 5px; font-weight: 800; text-shadow: 0 0 15px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,0.9);">
-                            พลังงานสะอาด</h3>
-                        <p
-                            style="font-weight: 700; color: var(--text-main); font-size: 1.15rem; margin-bottom: 0; text-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,0.9);">
-                            เพื่ออนาคตที่ดีกว่าของทุกครอบครัว</p>
-                    </div>
-                    <div class="video-wrapper"
-                        style="margin: 0; width: 100%; aspect-ratio: 16/9; border-radius: 20px; border: 8px solid white; box-shadow: 0 20px 40px rgba(0,0,0,0.15); overflow: hidden; background: #000;">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/y0Om3oZs2Qg?rel=0"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen style="display: block;"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Home Portfolio Section -->
-    <section class="portfolio-home">
-        <div class="container">
-            <div class="section-title">
-                <h2 style="font-size: clamp(2.2rem, 8vw, 4.5rem);">
-                    <span style="white-space: nowrap;">ผลงานติดตั้ง</span><wbr><span><span
-                            style="white-space: nowrap;">โซลาร์เซลล์</span><wbr><span
-                            style="white-space: nowrap;">สำหรับ</span><wbr><span
-                            style="white-space: nowrap;">บ้านพักอาศัย</span></span>
-                </h2>
-                <p>
-                    <span style="white-space: nowrap;">ตัวอย่างผลงานจริงจากบ้าน</span><wbr><span
-                        style="white-space: nowrap;">ที่ไว้วางใจในระบบของเรา</span>
-                </p>
-            </div>
-
-            <div class="agri-portfolio-grid">
-                <div class="agri-portfolio-card">
-                    <img src="background/solar_H2.jpg" alt="บ้านเดี่ยว">
-                    <div class="agri-portfolio-info">
-                        <div class="agri-icon"><i class="fa-solid fa-house"></i></div>
-                        <div class="agri-details">
-                            <h4>บ้านเดี่ยว</h4>
-                            <p><i class="fa-solid fa-bolt text-red"></i> ขนาด 5 kWp</p>
-                            <p><i class="fa-solid fa-location-dot text-red"></i> กรุงเทพมหานคร</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="agri-portfolio-card">
-                    <img src="background/solar_H1.jpg" alt="บ้านสองชั้น">
-                    <div class="agri-portfolio-info">
-                        <div class="agri-icon"><i class="fa-solid fa-house-chimney"></i></div>
-                        <div class="agri-details">
-                            <h4>บ้านสองชั้น</h4>
-                            <p><i class="fa-solid fa-bolt text-red"></i> ขนาด 8 kWp</p>
-                            <p><i class="fa-solid fa-location-dot text-red"></i> จังหวัดสมุทรปราการ</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="agri-portfolio-card">
-                    <img src="background/solar_H3.jpg" alt="บ้านพักอาศัยพร้อม EV Charger">
-                    <div class="agri-portfolio-info">
-                        <div class="agri-icon"><i class="fa-solid fa-charging-station"></i></div>
-                        <div class="agri-details">
-                            <h4>บ้านพักอาศัยพร้อม EV Charger</h4>
-                            <p><i class="fa-solid fa-bolt text-red"></i> ขนาด 10 kWp</p>
-                            <p><i class="fa-solid fa-location-dot text-red"></i> จังหวัดเชียงใหม่</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: right; margin-top: 30px;">
-                <a href="#" class="btn-submit"
-                    style="display: inline-block; padding: 12px 30px; border-radius: 30px; font-size: 1.1rem; text-decoration: none; width: auto;"><i
-                        class="fa-solid fa-chevron-right" style="margin-right: 5px;"></i> ดูผลงานทั้งหมด</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Home Form Section -->
-    <section class="form-section form-home">
-        <div class="container">
-            <div class="section-title">
-                <h2><span>สินค้าที่คุณสนใจ</span></h2>
-            </div>
-
-            <div class="form-container">
-                <form id="quote-form-3">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>1. ชื่อ-นามสกุล (Full Name) <span>**</span></label>
-                            <input type="text" class="form-control" name="FullName" required
-                                placeholder="นายตัวอย่าง ทดสอบ">
-                        </div>
-                        <div class="form-group">
-                            <label>2. ชื่อบริษัท (Company Name) <span>**</span></label>
-                            <input type="text" class="form-control" name="CompanyName" required
-                                placeholder="บริษัท ตัวอย่าง จำกัด">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>3. เลขประจำตัวผู้เสียภาษี (Tax ID)</label>
-                        <input type="text" class="form-control" name="TaxID" placeholder="0123456789123">
-                    </div>
-
-                    <div class="form-group">
-                        <label>4. ที่อยู่บริษัท (Company Address) <span>**</span></label>
-                        <textarea class="form-control" name="CompanyAddress" rows="2" required
-                            placeholder="ระบุที่อยู่ของบริษัทครบถ้วน"></textarea>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>5. เบอร์โทรศัพท์ (Phone Number) <span>**</span></label>
-                            <input type="tel" class="form-control" name="PhoneNumber" required
-                                placeholder="08X-XXX-XXXX">
-                        </div>
-                        <div class="form-group">
-                            <label>6. อีเมล (Email)</label>
-                            <input type="email" class="form-control" name="Email" placeholder="example@company.com">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>7. หมวดหมู่สินค้าที่ต้องการขอใบเสนอราคา (Product Category) <span>**</span></label>
-                        <select class="form-control" id="product-category-3" name="ProductCategory" required
-                            onchange="toggleOtherInput(this, 'other-product-container-3', 'other-product-3')">
-                            <option value="" disabled selected>-- เลือกหมวดหมู่ --</option>
-                            <option value="inverter">Inverter (อินเวอร์เตอร์)</option>
-                            <option value="solar-roof">Solar Roof (แผงโซลาร์เซลล์)</option>
-                            <option value="solar-pump">Solar Pump (ปั๊มน้ำโซลาร์เซลล์)</option>
-                            <option value="other">Other (โปรดระบุ)</option>
-                        </select>
-
-                        <div class="hidden-input" id="other-product-container-3">
-                            <input type="text" class="form-control" id="other-product-3" name="OtherProduct"
-                                placeholder="โปรดระบุสินค้าเพิ่มเติม">
-                        </div>
-                    </div>
-
-                    <input type="hidden" name="Sector" value="home">
-
-                    <button type="button" class="btn-submit">ขอรับใบเสนอราคา</button>
-                </form>
-            </div>
-        </div>
-    </section>
 
     <!-- Process Section -->
     <section class="process-section">
