@@ -469,7 +469,7 @@
             -webkit-user-drag: none;
         }
 
-                /* Dotted Indicator */
+        /* Dotted Indicator */
         .lightbox-dots-container {
             position: absolute;
             bottom: 25px;
@@ -525,29 +525,36 @@
                 height: 40px;
                 font-size: 1.1rem;
             }
+
             .lightbox-nav-btn {
                 width: 42px;
                 height: 42px;
                 font-size: 1.1rem;
             }
+
             .lightbox-prev {
                 left: 10px;
             }
+
             .lightbox-next {
                 right: 10px;
             }
+
             .lightbox-dots-container {
                 bottom: 20px;
                 gap: 8px;
                 padding: 6px 14px;
             }
+
             .lightbox-dot {
                 width: 8px;
                 height: 8px;
             }
+
             .lightbox-dot.active {
                 width: 22px;
             }
+
             .lightbox-img {
                 max-height: 75vh;
             }
@@ -1013,6 +1020,85 @@
             margin-top: 15px;
         }
 
+        /* Checkbox Group Styles */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .checkbox-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 4px 0;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+            user-select: none;
+            position: relative;
+        }
+
+        .checkbox-card:hover {
+            opacity: 0.85;
+        }
+
+        .checkbox-card:has(input[type="checkbox"]:checked),
+        .checkbox-card.active {
+            border: none;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .checkbox-card input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #cbd5e1;
+            border-radius: 6px;
+            background: #fff;
+            cursor: pointer;
+            display: inline-grid;
+            place-content: center;
+            margin: 0;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-card input[type="checkbox"]:hover {
+            border-color: var(--primary);
+        }
+
+        .checkbox-card input[type="checkbox"]::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 11px;
+            color: #fff;
+            transform: scale(0);
+            transition: transform 0.15s ease-in-out;
+        }
+
+        .checkbox-card input[type="checkbox"]:checked {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .checkbox-card input[type="checkbox"]:checked::before {
+            transform: scale(1);
+        }
+
+        .checkbox-card .checkbox-text {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            font-weight: 500;
+            flex-grow: 1;
+        }
+
         @media (min-width: 993px) {
             .nowrap-desktop {
                 white-space: nowrap !important;
@@ -1473,7 +1559,7 @@
                 <p>ตัวอย่างผลงานจริงจากองค์กรชั้นนำ ที่ไว้วางใจในระบบของเรา</p>
             </div>
 
-                        <div class="portfolio-grid">
+            <div class="portfolio-grid">
                 <div class="portfolio-card">
                     <img src="Photo-t/16_0.jpg" alt="Industrial Factory">
                     <div class="portfolio-info">
@@ -1634,7 +1720,7 @@
     <section class="form-section">
         <div class="container">
             <div class="section-title">
-                <h2><span>สินค้าที่คุณสนใจ</span></h2>
+                <h2><span>แบบฟอร์มกรอกข้อมูล</span></h2>
             </div>
 
             <div class="form-container">
@@ -1676,20 +1762,23 @@
                     </div>
 
                     <div class="form-group">
-                        <label>7. หมวดหมู่สินค้าที่ต้องการขอใบเสนอราคา (Product Category) <span>**</span></label>
-                        <select class="form-control" id="product-category-1" name="ProductCategory" required
-                            onchange="toggleOtherInput(this, 'other-product-container-1', 'other-product-1')">
-                            <option value="" disabled selected>-- เลือกหมวดหมู่ --</option>
-                            <option value="inverter">Inverter (อินเวอร์เตอร์)</option>
-                            <option value="solar-roof">Solar Roof (แผงโซลาร์เซลล์)</option>
-                            <option value="solar-pump">Solar Pump (ปั๊มน้ำโซลาร์เซลล์)</option>
-                            <option value="other">Other (โปรดระบุ)</option>
-                        </select>
-
-                        <div class="hidden-input" id="other-product-container-1">
-                            <input type="text" class="form-control" id="other-product-1" name="OtherProduct"
-                                placeholder="โปรดระบุสินค้าเพิ่มเติม">
+                        <label>7. รายการที่คุณต้องการข้อมูล <span>**</span></label>
+                        <div class="checkbox-group" id="requested-info-group-1">
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="InterestedTopics" value="ปรึกษาติดตั้งโซลาร์เซลล์" class="info-checkbox">
+                                <span class="checkbox-text">ปรึกษาติดตั้งโซลาร์เซลล์</span>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="InterestedTopics" value="คำนวณระยะคืนทุน" class="info-checkbox">
+                                <span class="checkbox-text">คำนวณระยะคืนทุน</span>
+                            </label>
                         </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>8. อื่นๆ (Other)</label>
+                        <textarea class="form-control" name="OtherDetails" rows="2"
+                            placeholder="ระบุรายละเอียดเพิ่มเติมที่คุณต้องการข้อมูล"></textarea>
                     </div>
 
                     <input type="hidden" name="Sector" value="business">
@@ -1773,7 +1862,7 @@
     <section class="form-section form-agri">
         <div class="container">
             <div class="section-title">
-                <h2><span>สินค้าที่คุณสนใจ</span></h2>
+                <h2><span>แบบฟอร์มกรอกข้อมูล</span></h2>
             </div>
 
             <div class="form-container">
@@ -1815,20 +1904,23 @@
                     </div>
 
                     <div class="form-group">
-                        <label>7. หมวดหมู่สินค้าที่ต้องการขอใบเสนอราคา (Product Category) <span>**</span></label>
-                        <select class="form-control" id="product-category-2" name="ProductCategory" required
-                            onchange="toggleOtherInput(this, 'other-product-container-2', 'other-product-2')">
-                            <option value="" disabled selected>-- เลือกหมวดหมู่ --</option>
-                            <option value="inverter">Inverter (อินเวอร์เตอร์)</option>
-                            <option value="solar-roof">Solar Roof (แผงโซลาร์เซลล์)</option>
-                            <option value="solar-pump">Solar Pump (ปั๊มน้ำโซลาร์เซลล์)</option>
-                            <option value="other">Other (โปรดระบุ)</option>
-                        </select>
-
-                        <div class="hidden-input" id="other-product-container-2">
-                            <input type="text" class="form-control" id="other-product-2" name="OtherProduct"
-                                placeholder="โปรดระบุสินค้าเพิ่มเติม">
+                        <label>7. รายการที่คุณต้องการข้อมูล <span>**</span></label>
+                        <div class="checkbox-group" id="requested-info-group-2">
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="InterestedTopics" value="ปรึกษาติดตั้งโซลาร์เซลล์" class="info-checkbox">
+                                <span class="checkbox-text">ปรึกษาติดตั้งโซลาร์เซลล์</span>
+                            </label>
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="InterestedTopics" value="คำนวณระยะคืนทุน" class="info-checkbox">
+                                <span class="checkbox-text">คำนวณระยะคืนทุน</span>
+                            </label>
                         </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>8. อื่นๆ (Other)</label>
+                        <textarea class="form-control" name="OtherDetails" rows="2"
+                            placeholder="ระบุรายละเอียดเพิ่มเติมที่คุณต้องการข้อมูล"></textarea>
                     </div>
 
                     <input type="hidden" name="Sector" value="agriculture">
@@ -1919,15 +2011,25 @@
             const otherContainer = document.getElementById(containerId);
             const otherInput = document.getElementById(inputId);
 
-            if (selectElement.value === 'other') {
+            if (selectElement && selectElement.value === 'other') {
                 otherContainer.style.display = 'block';
                 otherInput.required = true;
                 otherInput.focus();
-            } else {
+            } else if (otherContainer) {
                 otherContainer.style.display = 'none';
-                otherInput.required = false;
+                if (otherInput) otherInput.required = false;
             }
         }
+
+        // Setup Checkbox Interactions
+        document.querySelectorAll('.info-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                const card = this.closest('.checkbox-card');
+                if (card) {
+                    card.classList.toggle('active', this.checked);
+                }
+            });
+        });
 
         // Auto-resize textarea as user types
         const textareas = document.querySelectorAll('textarea.form-control');
@@ -1963,6 +2065,22 @@
                     return;
                 }
 
+                // Validate at least one checkbox is selected in Topic 7
+                const checkboxes = form.querySelectorAll('input[name="InterestedTopics"]');
+                if (checkboxes.length > 0) {
+                    const isAnyChecked = Array.from(checkboxes).some(cb => cb.checked);
+                    if (!isAnyChecked) {
+                        Swal.fire({
+                            title: 'กรุณากรอกข้อมูลให้ครบถ้วน',
+                            text: 'กรุณาเลือก "รายการที่คุณต้องการข้อมูล" อย่างน้อย 1 รายการ',
+                            icon: 'warning',
+                            confirmButtonText: 'ตกลง',
+                            confirmButtonColor: '#e3000f'
+                        });
+                        return;
+                    }
+                }
+
                 // UI Loading State
                 const originalText = this.innerText;
                 this.innerText = 'กำลังส่งข้อมูล...';
@@ -1970,6 +2088,25 @@
 
                 // Gather Data
                 const formData = new FormData(form);
+
+                // Format checkboxes for Topic 7 into combined summary
+                const checkedBoxes = Array.from(form.querySelectorAll('input[name="InterestedTopics"]:checked'));
+                if (checkedBoxes.length > 0) {
+                    const selectedItems = checkedBoxes.map(cb => cb.value);
+                    const topicsSummary = selectedItems.join(', ');
+                    formData.delete('InterestedTopics');
+                    formData.set('InterestedTopics', topicsSummary);
+                    formData.set('ProductCategory', topicsSummary); // Backward compatibility for Google Sheet column
+                }
+
+                // Format Topic 8 OtherDetails
+                const otherDetailInput = form.querySelector('textarea[name="OtherDetails"]');
+                const otherDetailVal = (otherDetailInput && otherDetailInput.value.trim()) ? otherDetailInput.value.trim() : '';
+                if (otherDetailVal) {
+                    formData.set('OtherDetails', otherDetailVal);
+                    formData.set('OtherProduct', otherDetailVal); // Backward compatibility for Google Sheet column
+                }
+
                 const urlEncodedData = new URLSearchParams(formData).toString();
 
                 // Send to Google Sheets Apps Script
@@ -1990,13 +2127,18 @@
                             confirmButtonColor: '#e3000f'
                         });
                         form.reset();
-                        // Reset any custom toggle fields
+                        // Reset any custom toggle fields, checkbox styles, and textarea sizing
                         const hiddenInputs = form.querySelectorAll('.hidden-input');
                         hiddenInputs.forEach(input => {
                             input.style.display = 'none';
                             const internalInput = input.querySelector('input');
-                            if (internalInput) internalInput.required = false;
+                            if (internalInput) {
+                                internalInput.required = false;
+                                internalInput.value = '';
+                            }
                         });
+                        form.querySelectorAll('.checkbox-card').forEach(card => card.classList.remove('active'));
+                        form.querySelectorAll('textarea.form-control').forEach(t => t.style.height = 'auto');
                     })
                     .catch(error => {
                         alert('เกิดข้อผิดพลาดในการส่งข้อมูล กรุณาลองใหม่อีกครั้ง');
@@ -2012,8 +2154,10 @@
     </script>
 
     <!-- Lightbox Swiper Modal (Clean Image Display with Dotted Indicator) -->
-    <div id="imageLightboxModal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image Gallery Viewer">
-        <button id="lightboxCloseBtn" class="lightbox-close-btn" aria-label="Close popup"><i class="fa-solid fa-xmark"></i></button>
+    <div id="imageLightboxModal" class="lightbox-modal" role="dialog" aria-modal="true"
+        aria-label="Image Gallery Viewer">
+        <button id="lightboxCloseBtn" class="lightbox-close-btn" aria-label="Close popup"><i
+                class="fa-solid fa-xmark"></i></button>
 
         <div class="lightbox-stage" id="lightboxStage">
             <div class="lightbox-slide" id="lightboxSlide">
@@ -2028,8 +2172,8 @@
 
     <!-- Lightbox Swiper Script -->
     <script>
-        (function() {
-                        // All images in the Photo-t folder, with the 9 featured portfolio images first
+        (function () {
+            // All images in the Photo-t folder, with the 9 featured portfolio images first
             const allImages = [
                 'Photo-t/16_0.jpg',
                 'Photo-t/13_0.jpg',
@@ -2110,7 +2254,7 @@
                         dot.classList.add('active');
                         try {
                             dot.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                        } catch (err) {}
+                        } catch (err) { }
                     } else {
                         dot.classList.remove('active');
                     }
